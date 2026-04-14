@@ -4,7 +4,6 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-
 # Load model once when the app starts
 model = joblib.load("salary_predict_model.pkl")
 
@@ -25,7 +24,7 @@ def health_check():
     return jsonify({"status": "ok"}), 200
 
 
-@app.route("/predict", methods=["POST"])
+@app.route("/salary-prediciton/api/v1/salary", methods=["POST"])
 def predict():
     """
     Predict salary based on input JSON payload
